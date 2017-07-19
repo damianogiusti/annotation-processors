@@ -1,5 +1,21 @@
 apply plugin: 'java'
+apply plugin: 'maven'
+
+def version = "1.0.0"
+def artifactName = "contractor"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: MAVEN_REPO + artifactName)
+        pom.version = version
+        pom.artifactId = artifactName
+        pom.groupId = "com.damianogiusti"
+    }
 }
