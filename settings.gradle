@@ -1,1 +1,1 @@
-include ':app', ':contract-processor', ':contract-annotation'
+include ':app', ':contract-processor', ':contract-annotation', ':mapper-annotation', ':mapper-processor'

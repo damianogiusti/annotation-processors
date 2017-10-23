@@ -12,6 +12,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        proguard {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -29,4 +35,7 @@ dependencies {
 
     compile project(':contract-annotation')
     annotationProcessor project(':contract-processor')
+
+    compile project(':mapper-annotation')
+    annotationProcessor project(':mapper-processor')
 }
